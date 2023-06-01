@@ -69,6 +69,9 @@ public class JSPFormCheckboxTagController {
 		} else {
 			log.info("hobbyArray is null");
 		}
+
+		
+		
 		List<String> hobbyList = member.getHobbyList();
 		if(hobbyList != null) {
 			for (int i = 0; i < hobbyArray.length; i++) {
