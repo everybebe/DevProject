@@ -27,6 +27,7 @@ public class CrudMemberController {
 		return "crud/member/register";
 	}
 	
+	
 	@RequestMapping(value="/register", method = RequestMethod.POST)
 	public String crudMemberRegister(MemberVO member, Model model) {
 		log.info("crudMemberRegister() 실행...!");
@@ -49,6 +50,29 @@ public class CrudMemberController {
 		model.addAttribute("member", member);
 		return "crud/member/read";
 	}
+	
+	@RequestMapping(value="/modify", method = RequestMethod.GET)
+	public String modifyForm(int userNo, Model model) {
+		MemberVO member = service.read(userNo);
+		model.addAttribute("member", member);
+		return "crud/member/modify";
+	}
+	
+	@RequestMapping(value="/modify", method = RequestMethod.POST)
+	public String modify(MemberVO member, Model model) {
+		service.modify(member);
+		model.addAttribute("msg", "수정이 완료되었습니다!");
+		return "crud/member/success";
+	}
+	
+	
+	@RequestMapping(value="/remove", method = RequestMethod.POST)
+	public String remove(int userNo, Model model) {
+		service.remove(userNo);
+		model.addAttribute("msg", "삭제가 완료되었습니다!");
+		return "crud/member/success";
+	}
+	
 	
 	
 }

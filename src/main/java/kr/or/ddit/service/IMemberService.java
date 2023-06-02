@@ -12,5 +12,11 @@ public interface IMemberService {
 
 	public MemberVO read(int userNo);
 
+	public void modify(MemberVO member);
+
+	public void remove(int userNo);
+
+	
+	
 }
 

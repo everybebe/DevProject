@@ -38,4 +38,33 @@ public class MemberServiceImpl implements IMemberService {
 		return mapper.read(userNo);
 	}
 
+	@Override
+	public void modify(MemberVO member) {
+		mapper.modify(member);
+		
+		int userNo = member.getUserNo();
+		mapper.deleteAuth(userNo);
+		
+		List<MemberAuth> authList = member.getAuthList();
+		for (int i = 0; i < authList.size(); i++) {
+			MemberAuth memberAuth = authList.get(i);
+			String auth = memberAuth.getAuth();
+			if(auth == null) {
+				continue;
+			}
+			if(auth.trim().length() == 0) {
+				continue;
+			}
+			memberAuth.setUserNo(userNo);
+			mapper.createAuth(memberAuth);
+		}
+	}
+
+	@Override
+	public void remove(int userNo) {
+		mapper.deleteAuth(userNo); //역할삭제
+		mapper.delete(userNo); //회원정보 삭제
+		
+	}
+
 }
