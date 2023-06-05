@@ -9,6 +9,7 @@
 	</definition>
 	
 	
+	
 	<definition name="notice/*" extends="mainTemplate">
 		<put-attribute name="content" value="/WEB-INF/views/noticeboard/{1}.jsp" />
 	</definition>

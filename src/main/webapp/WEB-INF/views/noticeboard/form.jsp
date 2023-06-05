@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>공지사항 상세보기</h1>
+            <h1>공지사항 ${name }</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">DDIT HOME</a></li>
-              <li class="breadcrumb-item active">공지사항 등록</li>
+              <li class="breadcrumb-item active">공지사항 ${name }</li>
             </ol>
           </div>
         </div>
