@@ -3,6 +3,7 @@ package kr.or.ddit.controller.file.item.service;
 import java.util.List;
 
 import kr.or.ddit.vo.Item;
+import kr.or.ddit.vo.Item3;
 
 public interface ItemService {
 
@@ -17,7 +18,7 @@ public interface ItemService {
 	public void modify(Item item);
 
 	public void remove(int itemId);
-	
+
 
 }
 
