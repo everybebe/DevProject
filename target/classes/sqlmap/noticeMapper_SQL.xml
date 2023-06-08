@@ -14,6 +14,10 @@
 		</if>
 	</sql>
 
+	<!--
+	before : {bo_no=0, boTitle=제목입니다. boContent=내용이지요, boWriter=개똥이, boFile=파일객체}	
+	after : {bo_no=3, boTitle=제목입니다. boContent=내용이지요, boWriter=개똥이, boFile=파일객체}	
+	  -->
 	<insert id="insertNotice" parameterType="noticeVO" useGeneratedKeys="true">
 		<selectKey keyProperty="boNo" resultType="int" order="BEFORE">
 			select seq_notice.nextval from dual
