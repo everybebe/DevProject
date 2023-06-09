@@ -9,6 +9,12 @@ public interface LoginMapper {
 	public int signup(DDITMemberVO memberVO);
 
 	public DDITMemberVO loginCheck(DDITMemberVO memberVO);
+
+	public String idForgetProcess(DDITMemberVO member);
+
+	public String pwForgetProcess(DDITMemberVO member);
 	
 
+	
 }
+
