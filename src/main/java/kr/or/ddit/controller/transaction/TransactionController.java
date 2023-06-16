@@ -45,7 +45,7 @@ public class TransactionController {
 	 * 		@Transactional 을 적용하고 중간에 에러를 발생 시킨 후, 롤백된 상태를 확인하려고 했으나 롤백이 되지 않고 데이터베이스에 데이터가 등록된다.
 	 * 		
 	 * 		그 이유는 스프링 프레임워크에서 @Transactional 어노테이션은 기본적으로 Checked Exception에 대해서는 롤백 처리를 하지 않도록 설계되어 있다.
-	 * 		기본적으로 스프링에서 트랜잭션 처리는 RuntimeException 계열이라면 Rollback 처리를 한다.
+	 * 		기본적으로 스프링에서 트랜잭션 처리는 RuntimeException계열이라면 Rollback 처리를 한다.
 	 * 		그러나 UncheckedException에 대해서는 Rollback 처리를 진행하지 않는다.
 	 * 
 	 * 		여기서, 트랜잭션으로 국한된 롤백 정책이 아니라 스프링 프레임워크에서의 기본 정책에 대한 내용일 뿐이다.

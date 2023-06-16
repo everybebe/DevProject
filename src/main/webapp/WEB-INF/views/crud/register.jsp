@@ -19,7 +19,7 @@
 			<tr>
 				<td>제목</td>
 				<td>
-					<input type="text" id="title" name="title" value="${board.title }" />
+					<input type="text" id="title2" name="title2" value="${board.title }" />
 				</td>
 			</tr>
 			<tr>
@@ -53,14 +53,14 @@ $(function(){
 	
 	//등록 버튼을 클릭 시 이벤트
 	btnRegister.on("click", function(){
-		var title = $("#title").val(); 		//제목을 가져온다.
+		/* var title = $("#title").val();  */		//제목을 가져온다.
 		var content = $("#content").val();	//내용을 가져온다.
 		var writer = $("#content").val();	//작성자를 가져온다.
 		
-		if(title == null || title == ""){
+/* 		if(title == null || title == ""){
 			alert("제목을 입력해주세요.");
 			return false;
-		}
+		} */
 		
 		if(content == null || content == "") {
 			alert("내용을 입력해주세요");

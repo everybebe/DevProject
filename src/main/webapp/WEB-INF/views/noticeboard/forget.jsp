@@ -95,6 +95,9 @@ $(function(){
 			type: "post",
 			url : "/notice/idForget.do",
 			contentType : "application/json",
+			beforeSend : function(xhr) {
+				xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}"); //토큰때문에
+			},
 			data : JSON.stringify(data),
 			success : function(res){
 				$("#id").html(res);   //넘겨받은 아이디를 셋팅한다.(결과 출력)
@@ -136,6 +139,9 @@ $(function(){
 			url : "/notice/pwForget.do",
 			contentType : "application/json",
 			data : JSON.stringify(data),
+			beforeSend : function(xhr) {
+				xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}"); //토큰때문에
+			},
 			success: function(res){
 				$("#password").html(res);	//비밀번호 결과 출력
 			}

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
 	<ul class="navbar-nav">
@@ -17,16 +18,17 @@
 
 	<div class="sidebar">
 		<div class="user-panel mt-3 pb-3 mb-3 d-flex">
-         <c:if test="${not empty member }">
-            <c:set target="${sessionScope.SessionInfo }" property="memProfileImg" value="${member.memProfileImg }"/>
-            <c:set target="${sessionScope.SessionInfo }" property="memName" value="${member.memName }"/>
-         </c:if>
+		<sec:authentication property="principal.member" var="member1" />
+       <c:if test="${not empty member }">
+            <c:set target="${member1 }" property="memProfileImg" value="${member.memProfileImg }"/>
+            <c:set target="${member1 }" property="memName" value="${member.memName }"/>
+         </c:if> 
          <div class="image">
             <!-- img src에sessionScope.SessionInfo.memProfileImg를 넣으면 본인이 저장한 이미지가 나온다. -->
-            <img src="${sessionScope.SessionInfo.memProfileImg }"  class="img-circle elevation-2" alt="User Image">
+            <img src="${member1.memProfileImg }"  class="img-circle elevation-2" alt="User Image">
          </div>
          <div class="info">
-            <a href="/notice/profile.do" class="d-block">${sessionScope.SessionInfo.memName }</a>
+            <a href="/notice/profile.do" class="d-block">${member1.memName }</a>
          </div>
       </div>
 		<nav class="mt-2">
